@@ -1,0 +1,40 @@
+{% extends "table_pages.html" %}
+{% block title %}EmployeeCRUD{% endblock %}
+
+{% block content %}
+<div class="d-flex flex-row justify-content-center">
+    <!-- Place for table with employees -->
+    <div class="p-2">Card 1</div>
+    <div class="p-2">Card 2</div>
+</div>
+<table id="data_table" class="table table-striped table-bordered" style="width:100%">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Date of birth</th>
+        <th>Salary</th>
+        <th>Department name</th>
+    </tr>
+    </thead>
+    <tbody>
+    </tbody>
+    <tfoot>
+    <tr>
+        <th>Name</th>
+        <th>Date of birth</th>
+        <th>Salary</th>
+        <th>Department name</th>
+    </tr>
+    </tfoot>
+</table>
+{% endblock %}
+
+{% block datatable_script %}
+<script>
+    $(document).ready(function() {
+        $('#data_table').DataTable({
+            "ajax": '/employee_crud'
+        });
+    } );
+</script>
+{% endblock %}
