@@ -2,7 +2,6 @@ alembic==1.6.2
 aniso8601==9.0.1
 click==8.0.0
 colorama==0.4.4
--e git+https://github.com/ASIMER/epam_project_spring_2021.git@8c5ca0dadbd14a01cecdf1c16aed7602a7c685c5#egg=department_app
 factory-boy==3.2.0
 Faker==8.4.0
 Flask==2.0.0

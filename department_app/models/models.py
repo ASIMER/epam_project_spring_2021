@@ -52,8 +52,6 @@ class Employee(db.Model):
     department_id = db.Column(db.String(36),
                               db.ForeignKey('Departments.department_id'),
                               nullable=False)
-    department = db.relationship('Departments',
-                                 backref=db.backref('Employee', lazy=False))
 
     def __repr__(self):
         return '<Employee %r with name %r, birthdate %r and salary %r>' % \

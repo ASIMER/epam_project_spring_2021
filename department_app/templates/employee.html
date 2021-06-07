@@ -1,11 +1,11 @@
 {% extends "table_pages.html" %}
-{% block title %}EmployeesCRUD{% endblock %}
+{% block title %}EmployeeCRUD{% endblock %}
 
 {% block content %}
-    <div class="d-flex flex-row justify-content-center">
+    <div class="d-flex flex-row justify-content-center" id="all_content">
         <!-- Place for table with employees -->
         <div class="p-2">
-            <h5 class="card-title" id="form_title">Insert new employee</h5>
+            <h5 class="card-title" id="form_title">Create a copy of the employee</h5>
             <form id="insert_form">
             <div class="form-group row">
                 <label for="employee_name" class="col-4 col-form-label">Name</label>
@@ -29,40 +29,26 @@
                 <label for="department_name" class="col-4 col-form-label">Department name</label>
                 <div class="col-8">
                     <input id="department_name" name="department_name" required="required" type="text" class="form-control">
-                    <input id="employee_id" name="employee_id" hidden type="text" class="form-control">
+                    <input id="employee_id" name="employee_id" hidden type="text" value="{{ employee_id }}" class="form-control">
                 </div>
             </div>
             <div class="form-group row">
-                <div class="offset-4 col-8">
+                <div class="col">
                     <button id="insert_btn" class="btn btn-outline-success" type="submit">Submit</button>
+
                 </div>
             </div>
-        </form></div>
+        </form>
+            <button id="delete_button" class="btn btn-outline-danger">Delete employee</button>
+            <button id="update_button" class="btn btn-outline-warning">Change employee info</button></div>
     </div>
-    <button id="delete_button" class="btn btn-outline-danger">Delete selected rows</button>
-    <button id="update_button" class="btn btn-outline-warning">Update selected row</button>
-    <table id="data_table" class="display table table-striped table-bordered" style="width:100%">
-        <thead>
-        <tr>
-            <th>Name</th>
-            <th>Date of birth</th>
-            <th>Salary</th>
-            <th>Department name</th>
-        </tr>
-        </thead>
-        <tbody>
-        </tbody>
-        <tfoot>
-        <tr>
-            <th>Name</th>
-            <th>Date of birth</th>
-            <th>Salary</th>
-            <th>Department name</th>
-        </tr>
-        </tfoot>
-    </table>
+
 {% endblock %}
 
 {% block datatable_script %}
-    <script src="{{ url_for('routes.static', filename='employee_table.js') }}"></script>
+    <script type="text/javascript">
+        let employee_id = "{{ employee_id }}"
+        let employees_address = "{{ url_for('routes.employees') }}"
+    </script>
+    <script type="text/javascript" src="{{ url_for('routes.static', filename='employee.js') }}"></script>
 {% endblock %}
